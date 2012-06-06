@@ -1,9 +1,13 @@
 /*
  * jQuery Highlight plugin
- *
+ * Copyright (c) 2009 Bartek Szopka, 2012 Natrim
+ * Licensed under MIT license.
+ */
+/*
  * Based on highlight v3 by Johann Burkard
  * http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html
- *
+ */
+/*
  * Usage:
  *   // wrap every occurrance of text 'lorem' in content
  *   // with <span class='highlight'> (default options)
@@ -32,12 +36,6 @@
  *
  *   // remove custom highlight
  *   $('#content').unhighlight({ element: 'em', className: 'important' });
- *
- *
- * Copyright (c) 2009 Bartek Szopka, 2012 Natrim
- *
- * Licensed under MIT license.
- *
  */
 
 jQuery.extend({
