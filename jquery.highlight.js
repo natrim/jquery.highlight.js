@@ -4,12 +4,6 @@
  * Based on highlight v3 by Johann Burkard
  * http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html
  *
- * Code a little bit refactored and cleaned (in my humble opinion).
- * Most important changes:
- *  - has an option to highlight only entire words (wordsOnly - false by default),
- *  - has an option to be case sensitive (caseSensitive - false by default)
- *  - highlight element tag and class names can be specified in options
- *
  * Usage:
  *   // wrap every occurrance of text 'lorem' in content
  *   // with <span class='highlight'> (default options)
