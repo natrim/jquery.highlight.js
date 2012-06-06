@@ -66,6 +66,8 @@ if (typeof jQuery === "function") jQuery(function($) {
                 for (var i = 0; i < node.childNodes.length; i++) {
                     i += $.highlight(node.childNodes[i], re, nodeName, className, ignoreAccents);
                 }
+            } else if (node.nodeType === 9) {
+                $.highlight(node.body, re, nodeName, className, ignoreAccents);
             }
             return 0;
         },
