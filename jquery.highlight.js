@@ -76,8 +76,9 @@ if (typeof jQuery === "function") jQuery(function($) {
 
             var repChar = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'C', 'c', 'R', 'r', 'T', 't', 'Z', 'z', 'S', 's', 'D', 'd', 'Y', 'y', 'N', 'n'];
 
-            for (var i = 0; i < rExps.length; ++i)
-            str = str.replace(rExps[i], repChar[i]);
+            for (var i = 0; i < rExps.length; ++i) {
+                str = str.replace(rExps[i], repChar[i]);
+            }
 
             return str;
         }
