@@ -49,7 +49,7 @@
 jQuery.extend({
     highlight: function(node, re, nodeName, className, ignoreAccents) {
         if (node.nodeType === 3) {
-            var text = stripVowelAccent(node.data);
+            var text = node.data;
             if (ignoreAccents) {
                 text = jQuery.stripAccent(text);
             }
