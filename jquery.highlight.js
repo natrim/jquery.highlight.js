@@ -25,7 +25,7 @@
  *
  *   // don't ignore case during search of term 'lorem'
  *   $('#content').highlight('lorem', { caseSensitive: true });
- *   
+ *
  *   // respect the accents
  *   $('#content').highlight('lorem', { ignoreAccents: false });
  *
@@ -92,7 +92,7 @@ jQuery.extend({
         var repChar = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'C', 'c', 'R', 'r', 'T', 't', 'Z', 'z', 'S', 's', 'D', 'd', 'Y', 'y', 'N', 'n'];
 
         for (var i = 0; i < rExps.length; ++i)
-        str = str.replace(rExps[i], repChar[i]);
+            str = str.replace(rExps[i], repChar[i]);
 
         return str;
     }
@@ -126,17 +126,17 @@ jQuery.fn.highlight = function(words, options) {
         words = [words];
     }
     words = jQuery.grep(words, function(word, i) {
-        return word != '';
+        return word !== '';
     });
     words = jQuery.map(words, function(word, i) {
         if (settings.ignoreAccents) {
             word = jQuery.stripAccent(word);
         }
-        return word.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+        return word.replace(/[-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
     });
-    if (words.length == 0) {
+    if (words.length === 0) {
         return this;
-    };
+    }
 
     var flag = settings.caseSensitive ? "" : "i";
     var pattern = "(" + words.join("|") + ")";
