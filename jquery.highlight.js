@@ -91,10 +91,32 @@ if (typeof jQuery === "function") jQuery(function($) {
         };
         $.extend(settings, options);
 
+        // Thank you https://gist.github.com/jonraasch/563055
+        function newNormalize(node) {
+            var new_node;
+            for (var i = 0, children = node.childNodes, nodeCount = children.length; i < nodeCount; i++) {
+                var child = children[i];
+                if (child.nodeType == 1) {
+                    newNormalize(child);
+                    continue;
+                }
+                if (child.nodeType != 3) { continue; }
+                var next = child.nextSibling;
+                if (next == null || next.nodeType != 3) { continue; }
+                var combined_text = child.nodeValue + next.nodeValue;
+                new_node = node.ownerDocument.createTextNode(combined_text);
+                node.insertBefore(new_node, child);
+                node.removeChild(child);
+                node.removeChild(next);
+                i--;
+                nodeCount--;
+            }
+        }
+
         return this.find(settings.element + "." + settings.className).each(function() {
             var parent = this.parentNode;
             parent.replaceChild(this.firstChild, this);
-            parent.normalize();
+            newNormalize(parent);
         }).end();
     };
 
